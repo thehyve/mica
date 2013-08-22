@@ -4,8 +4,7 @@ description = Mica Bootstrap subtheme
 core        = 7.x
 base theme  = bootstrap
 
-stylesheets[all][] = 'css/mica_bootstrap.css'
-stylesheets[all][] = 'css/mica_bootstrap_responsive.css'
+stylesheets[all][] = 'css/mica_style.css'
 
 scripts[] = 'bootstrap/js/bootstrap.min.js'
 
