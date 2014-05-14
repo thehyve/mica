@@ -55,11 +55,11 @@ function _mica_studies_export_dto_study_dto($nid) {
       !empty($design_other_sp) ? $study_methods_dto->addOtherDesign($dto_util->_set_LocalizedStringDto($design_other_sp)) : NULL;
     }
   }
-  $info_design_follow_up = $wrapper->field_info_design_follow_up->value->value();
-  !empty($info_design_follow_up) ? $study_methods_dto->addFollowUpInfos($dto_util->_set_LocalizedStringDto($info_design_follow_up)) : NULL;
+  $info_design_follow_up = $wrapper->field_info_design_follow_up->value();
+ !empty($info_design_follow_up) ? $study_methods_dto->addFollowUpInfos($dto_util->_set_LocalizedStringDto($info_design_follow_up)) : NULL;
 
   foreach ($wrapper->field_recruitment->getIterator() as $target) {
-    $study_methods_dto->addRecruitments($target->value());
+   $study_methods_dto->addRecruitments($target->value());
     if ($target->value() == 'other') {
       $recruitment_other_sp = $wrapper->field_recruitment_other_sp->value();
       !empty($recruitment_other_sp) ? $study_methods_dto->addOtherRecruitments($dto_util->_set_LocalizedStringDto($recruitment_other_sp)) : NULL;
@@ -111,12 +111,12 @@ function _mica_studies_export_dto_study_dto($nid) {
     }
   }
 
-  //TODO Attach networks to study
+//  //TODO Attach networks to study
 //  if (module_exists('mica_networks')) {
 //    foreach ($wrapper->field_networks->getIterator() as $network_wrapper) {
 //      $network = _mica_studies_export_dto_network_dto($dto_util, $network_wrapper);
 //    }
-//    $study_dto->addNetworks($network);
+// //   $study_dto->addNetworks($network);
 //  }
 
   $codec = new \DrSlump\Protobuf\Codec\Binary();
