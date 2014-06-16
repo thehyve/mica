@@ -20,6 +20,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 80, host: 7880
   config.vm.network "forwarded_port", guest: 8080, host: 7888
 
+  #creates a shared folder to the root source code
+  config.vm.synced_folder "../../", "/mica"
+
+  #creates a shared folder directed to modules
+  config.vm.synced_folder "../../cmi/modules/", "/cmimodules"
+  
   config.vm.provider "virtualbox" do |vb|
   #   # Don't boot with headless mode
   #   vb.gui = true

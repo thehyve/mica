@@ -5,3 +5,4 @@ resources { "firewall":
 
 import 'lamp.pp'
 import 'tomcat.pp'
+import 'mica.pp'

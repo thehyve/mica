@@ -29,5 +29,5 @@ git submodule add https://github.com/puppetlabs/puppetlabs-firewall.git firewall
 
 # now we run puppet for lamp
 puppet apply --debug -vv  --modulepath=$PUPPET_DIR/modules/ $PUPPET_DIR/manifests/init.pp
-#puppet apply -vv  --modulepath=/vagrant/modules/ /vagrant/manifests/init.pp
+#puppet apply --debug -vv  --modulepath=/vagrant/modules/ /vagrant/manifests/init.pp
 

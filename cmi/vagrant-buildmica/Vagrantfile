@@ -17,6 +17,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.cache.scope = :box
   end
 
+  #creates a shared folder to the root source code
+  config.vm.synced_folder "../../", "/mica"
+
   # config.vm.network "forwarded_port", guest: 80, host: 7880
   # config.vm.network "forwarded_port", guest: 8080, host: 7888
 
