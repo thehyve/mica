@@ -24,8 +24,15 @@ exec { "update drush":
   command => "drush dl drush --destination='/usr/share'",
   path    => $binpath
 } ->
+package {'node-less':
+  ensure => present
+} ->
+package { "zip":
+  ensure => present
+#  require  => Exec['apt-get update'],
+} ->
 exec { "make":
-  command => "make -d clean dev package",
+  command => "make -d clean prod packonly",
   cwd     => "/mica",
   path    => $binpath,
   timeout => 0
