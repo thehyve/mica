@@ -24,7 +24,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder "../../", "/mica"
 
   #creates a shared folder directed to modules
-  config.vm.synced_folder "../../cmi/modules/", "/cmimodules"
+  config.vm.synced_folder "../../sesi/modules/", "/sesimodules"
   
   config.vm.provider "virtualbox" do |vb|
   #   # Don't boot with headless mode
@@ -36,7 +36,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision "puppet" do |puppet|
      puppet.manifests_path = "manifests"
-     puppet.manifest_file  = "init.pp"
+     puppet.manifest_file  = "provision.pp"
      puppet.module_path = "modules"
   end
 

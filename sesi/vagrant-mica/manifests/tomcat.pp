@@ -20,33 +20,33 @@ wget::fetch { "download solr":
 } ->
 exec { "untar":
     command => "tar -xzvf ${tgzfile}  -C /tmp ",
-    path    => "${binpath}",
+    path    => "/usr/local/bin/:/bin/:/usr/bin/",
 } ->
 exec { "copywar":
     command => "cp /tmp/${solr_version}/dist/solr*.war ${tomdir}/webapps/solr.war",
-    path    => "${binpath}",
+    path    => "/usr/local/bin/:/bin/:/usr/bin/",
 } ->
 exec { "copy_lib":
     command => "cp ${soldir}/commons/* ${tomdir}/lib && cp ${soldir}/slf4j/* ${tomdir}/lib",
-    path    => "${binpath}",
+    path    => "/usr/local/bin/:/bin/:/usr/bin/",
 } ->
 file { "/home/solr":
     ensure => "directory",
 } ->
 exec { "copy_home":
     command => "unzip -o ${soldir}/example/base.zip -d /home/solr && chown -R tomcat /home/solr",
-    path    => "${binpath}",
+    path    => "/usr/local/bin/:/bin/:/usr/bin/",
 } -> #unzip de war, to avoid restarting tomcat
 file { "${tomdir}/webapps/solr":
     ensure => "directory",
 } ->
 exec { "unzip_war":
     command => "unzip -o ${tomdir}/webapps/solr.war -d ${tomdir}/webapps/solr",
-    path    => "${binpath}",
+    path    => "/usr/local/bin/:/bin/:/usr/bin/",
 } ->
 exec { "replace_webxml":
     command => "cp ${soldir}/web.xml ${tomdir}/webapps/solr/WEB-INF/web.xml",
-    path    => "${binpath}",
+    path    => "/usr/local/bin/:/bin/:/usr/bin/",
 } -> 
 service {'tomcat6':
   ensure => running,
