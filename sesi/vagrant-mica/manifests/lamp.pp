@@ -27,9 +27,16 @@ package {'php-xml':
 file {'/etc/php.ini':
   ensure => file,
 } ->
+package {'php-pdo':
+  ensure => present,
+} ->
+package {'php-mysql':
+  ensure => present,
+} ->
 set_php_var {
   "memory_limit":        value => '1024M';
   "max_execution_time":  value => '60';
+  "extension":           value => 'pdo.so';
 }
 
 notify {"initiating apache installation" :
