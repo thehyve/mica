@@ -24,7 +24,7 @@ exec { "copy zip to www":
   require => Package['httpd'],
 } ->
 exec { "uncompress":
-  command => "unzip  ${zipfile}",
+  command => "unzip  -o ${zipfile}",
   cwd     => "${wwwfolder}",
   creates => "${wwwfolder}/${zipname}",
   path    => "/usr/local/bin/:/bin/:/usr/bin/",
