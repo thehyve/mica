@@ -6,7 +6,7 @@
 #  path    => "/usr/local/bin/:/bin/:/usr/bin/",
 #  timeout => 0
 #}
-$zipname = 'mica_distribution-7.x-9.1-b3211'
+$zipname = 'mica-distribution-7.x-9.1-b3211'
 $zipfile = "${zipname}.jar"
 $wwwfolder = '/var/www/html'
 
