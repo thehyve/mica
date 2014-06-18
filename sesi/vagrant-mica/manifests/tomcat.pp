@@ -25,6 +25,7 @@ exec { "untar":
 exec { "copywar":
     command => "cp /tmp/${solr_version}/dist/solr*.war ${tomdir}/webapps/solr.war",
     path    => "/usr/local/bin/:/bin/:/usr/bin/",
+    require => Package['tomcat6'],
 } ->
 exec { "copy_lib":
     command => "cp ${soldir}/commons/* ${tomdir}/lib && cp ${soldir}/slf4j/* ${tomdir}/lib",
