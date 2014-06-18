@@ -21,6 +21,7 @@ exec { "copy zip to www":
   cwd     => "/vagrant",
   creates => "${wwwfolder}/${zipfile}",
   path    => "/usr/local/bin/:/bin/:/usr/bin/",
+  require => Package['httpd'],
 } ->
 exec { "uncompress":
   command => "unzip  ${zipfile}",

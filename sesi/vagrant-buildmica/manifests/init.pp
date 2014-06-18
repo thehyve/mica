@@ -41,7 +41,7 @@ exec { "make":
 /*
 see https://support.sonatype.com/entries/22189106-How-can-I-programatically-upload-an-artifact-into-Nexus-
 
-curl -v -F r=releases -F hasPom=false -F e=jar -F g=com.test -F a=project -F v=1.0 -F p=jar -F file=@project-1.0.jar -u admin:admin123 http://localhost:8081/nexus/service/local/artifact/maven/content
+curl -v -F r=releases -F hasPom=false -F e=jar -F g=org.obiba.mica -F a=mica-distribution -F v=7.x-9.1-b3211 -F p=jar -F file=@mica_distribution-7.x-9.1-b3211.jar -u d.werba:Welcome159963! https://repo.thehyve.nl/service/local/artifact/maven/content
 
 For reference, here are all the available form parameters for this endpoint:
 
@@ -54,6 +54,8 @@ v - version
 p - packaging
 c - classifier (optional, not shown in examples above)
 file - the file(s) to be uploaded. These need to come last, and if there is a pom file it should come before the artifact
+
+ curl -v -F r=releases -F hasPom=false -F e=jar -F g=org.obiba.mica -F a=mica-distribution -F v=7.x-9.1-b3211 -F p=jar -F file=@mica_distribution-7.x-9.1-b3211.jar -u d.werba:Welcome159963! https://repo.thehyve.nl//nexus/service/local/artifact/maven/content
 
 exec { "nexus upload":
   command => "curl -v -F r=releases -F hasPom=false -F e=tgz -F g=${art_package} -F a=${art_name} -F v=${art_version} -F p=${} -F file=@project-1.0.jar -u ${nexususer}:${nexuspasswd} https://repo.thehyve.nl/nexus/service/local/artifact/maven/content",
