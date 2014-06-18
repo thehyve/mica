@@ -13,7 +13,7 @@ $tgzfile = "/tmp/solr.tgz"
 $solr_version = "solr-4.8.1"
 
 wget::fetch { "download solr":
-   source      => "http://ftp.tudelft.nl/apache/lucene/solr/4.8.1/${solr_version}.tgz",
+   source      => "http://apache.cs.uu.nl/dist/lucene/solr/4.8.1/${solr_version}.tgz",
    destination => "${tgzfile}",
    timeout     => 0,
    verbose     => false,
