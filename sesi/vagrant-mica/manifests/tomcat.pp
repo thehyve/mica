@@ -7,7 +7,7 @@ package {'tomcat6':
  ensure => 'present',
 }
 
-$soldir = "/vagrant/solr"
+$soldir = "/vagrant/solrinst"
 $tomdir = "/usr/share/tomcat6"
 $tgzfile = "/tmp/solr.tgz"
 $solr_version = "solr-4.8.1"
