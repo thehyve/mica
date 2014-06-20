@@ -24,7 +24,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder "../../", "/mica"
 
   #creates a shared folder directed to modules
-  config.vm.synced_folder("../../sesi/modules/", "/sesimodules", user:"apache", group:"apache", mount_options: ["dmode=777","fmode=777"])
+  config.vm.synced_folder("../../sesi/modules/", "/sesimodules", mount_options: ["dmode=777","fmode=777"])
   
   config.vm.provider "virtualbox" do |vb|
   #   # Don't boot with headless mode
