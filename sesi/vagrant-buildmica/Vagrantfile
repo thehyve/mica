@@ -1,0 +1,40 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  config.vm.box = "puppetlabs/ubuntu-14.04-64-puppet"
+
+  # This shell provisioner installs librarian-puppet and runs it to install
+  # puppet modules. After that it just runs puppet
+  config.vm.provision :shell, :path => "shell/bootstrap.sh"
+  
+  if Vagrant.has_plugin?("vagrant-cachier")
+    # Configure cached packages to be shared between instances of the same base box.
+    # More info on http://fgrehm.viewdocs.io/vagrant-cachier/usage
+    config.cache.scope = :box
+  end
+
+  #creates a shared folder to the root source code
+  config.vm.synced_folder "../../", "/mica"
+
+  # config.vm.network "forwarded_port", guest: 80, host: 7880
+  # config.vm.network "forwarded_port", guest: 8080, host: 7888
+
+  config.vm.provider "virtualbox" do |vb|
+  #   # Don't boot with headless mode
+  #   vb.gui = true
+  #
+  #   # Use VBoxManage to customize the VM. For example to change memory:
+      vb.customize ["modifyvm", :id, "--memory", "2048"]
+  end
+
+  config.vm.provision "puppet" do |puppet|
+     puppet.manifests_path = "manifests"
+     puppet.manifest_file  = "init.pp"
+     puppet.module_path = "modules"
+  end
+
+end

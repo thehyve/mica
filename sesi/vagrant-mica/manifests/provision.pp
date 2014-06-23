@@ -1,0 +1,1 @@
+notify {"run vagrant provision if you want to rerun puppet script.." :}

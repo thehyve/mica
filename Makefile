@@ -237,6 +237,17 @@ else
 endif
 
 #
+# Package only, not dependencies with deb
+#
+packonly:
+	rm -rf target/mica_distribution*
+	cd target && \
+	cp -r $(micadir) mica_distribution-$(drupal_version)-$(deb_version) && \
+	tar czf mica_distribution-$(drupal_version)-$(deb_version).tar.gz mica_distribution-$(drupal_version)-$(deb_version) && \
+	zip -qr mica_distribution-$(drupal_version)-$(deb_version).zip mica_distribution-$(drupal_version)-$(deb_version) && \
+	rm -rf mica_distribution-$(drupal_version)-$(deb_version)
+
+#
 # Package
 #
 package: debian
