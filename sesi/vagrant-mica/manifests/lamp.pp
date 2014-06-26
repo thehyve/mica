@@ -33,6 +33,9 @@ package {'php-pdo':
 package {'php-mysql':
   ensure => present,
 } ->
+package {'php-pear':
+  ensure => present,
+} ->
 set_php_var {
   "memory_limit":        value => '1024M';
   "max_execution_time":  value => '60';
