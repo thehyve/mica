@@ -7,7 +7,7 @@ GITSRC=/opt/mica
 MICA=/var/www/html/mica
 SESIMODS=$MICA/sites/all/modules/sesi
 DRUSHDIR=/opt/drush
-COMPOSER=/usr/bin/composer
+COMPOSERDST=/usr/bin/composer
 
 if [ ! -d $GITSRC ]; then
   echo "Mica repo not found. Cloning!"
@@ -19,8 +19,7 @@ cd $GITSRC
 
 if [ "`git pull`" = "Already up-to-date." ]; then
   echo "Nothing to do"
-#TODOOOOOOOOOOOOOOOOOO
-#  exit 0
+  exit 0
 fi
 
 #copying files from updated repo
@@ -31,24 +30,25 @@ fi
 #continue with CI defined processes
 echo "Updated from repo"
 
-#trying to install composer drush
-if [ ! -f $COMPOSER ]; then
+#trying to install composer and drush
+if [ ! -f $COMPOSERDST ]; then
+  echo "Installing composer"
   curl -sS https://getcomposer.org/installer | php
-  mv composer.phar $COMPOSER
+  mv composer.phar $COMPOSERDST
 fi
 
 if [ ! -d $DRUSHDIR ]; then
-  echo "Drush not found. Cloning!"
+  echo "Drush not found. Installing drush!"
   cd /opt
   git clone https://github.com/drush-ops/drush.git
-  cd /opt/drush
+  cd $DRUSHDIR
   composer install
   chmod a+x drush
   cd /usr/bin
-  ln -s /opt/drush/drush 
+  ln -s $DRUSHDIR/drush 
 fi
 
-echo rsync -a --delete $GITSRC/sesi/modules $SESIMODS
+rsync -a --delete $GITSRC/sesi/modules $SESIMODS
 cd $MICA
 drush updatedb
 drush features-revert-all
