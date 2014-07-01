@@ -5,6 +5,7 @@ resources { "firewall":
 
 
 import 'lamp.pp'
+import 'mysql.pp'
 import 'tomcat.pp'
 import 'mica.pp'
 import 'micadb.pp'
