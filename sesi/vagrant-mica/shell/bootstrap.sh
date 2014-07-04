@@ -1,6 +1,6 @@
 #!/bin/bash
 # Directory in which librarian-puppet should manage its modules directory
-PUPPET_DIR='/vagrant'
+PUPPET_DIR='/rootinstall'
 
 # NB: librarian-puppet might need git installed. If it is not already installed
 # in your basebox, this will manually install it at this point using apt or yum
@@ -31,5 +31,5 @@ echo 'Running puppet from shell'
 
 # now we run puppet for lamp
 puppet apply  -vv  --modulepath=$PUPPET_DIR/modules/ $PUPPET_DIR/manifests/init.pp
-#puppet apply --debug -vv  --modulepath=/vagrant/modules/ /vagrant/manifests/init.pp
+#puppet apply --debug -vv  --modulepath=/rootinstall/modules/ /rootinstall/manifests/init.pp
 

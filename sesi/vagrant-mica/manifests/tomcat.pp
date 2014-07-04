@@ -7,7 +7,7 @@ package {'tomcat6':
  ensure => 'present',
 }
 
-$soldir = "/vagrant/solrinst"
+$soldir = "/rootinstall/solrinst"
 $tomdir = "/usr/share/tomcat6"
 $tgzfile = "/tmp/solr.tgz"
 $solr_version = "solr-4.8.1"
@@ -58,7 +58,7 @@ service {'tomcat6':
 
 
 # exec { "copy_solr":
-#     command => "cp /vagrant/solr/solr.war /usr/share/tomcat6/webapps/solr.war",
+#     command => "cp /rootinstall/solr/solr.war /usr/share/tomcat6/webapps/solr.war",
 #     path    => "/usr/local/bin/:/bin/",
 # 	creates => "/usr/share/tomcat6/webapps/solr.war"
 # }

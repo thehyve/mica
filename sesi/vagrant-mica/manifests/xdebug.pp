@@ -20,7 +20,7 @@ exec { "pecl xdebug":
 } ->
 file { '/etc/php.d/xdebug.ini':
     ensure => present,
-    source => "/vagrant/xdebug/xdebug.ini",
+    source => "/rootinstall/xdebug/xdebug.ini",
 } ->
 exec { "touch php.ini to restart service":
     command => "touch /etc/php.ini",
