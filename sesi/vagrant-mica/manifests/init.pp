@@ -1,9 +1,3 @@
-### FIREWALL ##########
-resources { "firewall":
-  purge => true
-}
-
-
 import 'lamp.pp'
 import 'mysql.pp'
 import 'tomcat.pp'
