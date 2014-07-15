@@ -22,5 +22,5 @@ file { "${wwwfolder}/mica/sites/all":
   recurse => true,
   owner => "apache",
   group => "apache",
-  #mode => 0755,
+  mode => 0777,
 }
