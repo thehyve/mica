@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 # Directory in which librarian-puppet should manage its modules directory
 PUPPET_DIR='/rootinstall'
 
@@ -32,5 +34,6 @@ echo 'Running puppet from shell'
 # now we run puppet for lamp
 puppet apply  -vv  --debug --modulepath=$PUPPET_DIR/modules/ $PUPPET_DIR/manifests/cleanfw.pp
 puppet apply  -vv  --debug --modulepath=$PUPPET_DIR/modules/ $PUPPET_DIR/manifests/init.pp
+puppet apply  -vv  --debug --modulepath=$PUPPET_DIR/modules/ $PUPPET_DIR/manifests/sesisite.pp
 #puppet apply --debug -vv  --modulepath=/rootinstall/modules/ /rootinstall/manifests/init.pp
 
