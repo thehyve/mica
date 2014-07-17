@@ -33,6 +33,9 @@ package {'php-pdo':
 package {'php-mysql':
   ensure => present,
 } ->
+package {'php-bcmath':
+  ensure => present,
+} ->
 package {'php-pear':
   ensure => present,
 } ->
