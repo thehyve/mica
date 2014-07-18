@@ -24,8 +24,8 @@ file { "${wwwfolder}/mica/sites/all":
   group => "apache",
   mode => 0777,
 } ->
-exec { "run drupalpush":
-  command => "bash drupalpush.sh",
+exec { "run drupalpull":
+  command => "bash drupalpull.sh",
   cwd     => "${wwwfolder}/mica/sites/all",
   path    => "/usr/local/bin/:/bin/:/usr/bin/",
 } 
