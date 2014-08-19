@@ -29,6 +29,6 @@ if not len(sys.argv) == 3:
     sys.exit(1)
 
 if is_there_new_build(sys.argv[1], sys.argv[2]):
-    sys.exit(0)
-else:
     sys.exit(1)
+else:
+    sys.exit(0)
