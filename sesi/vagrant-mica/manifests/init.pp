@@ -1,3 +1,4 @@
+import 'sftp.pp'
 import 'lamp.pp'
 import 'mysql.pp'
 import 'tomcat.pp'

@@ -4,6 +4,7 @@
 #}
 
 
+import 'sftp.pp'
 import 'lamp.pp'
 import 'tomcat.pp'
 import 'mica.pp'
