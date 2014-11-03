@@ -58,3 +58,6 @@ service {'httpd':
 }
 
 
+exec { "pear install Mail_Mime Mail_mimeDecode" :
+  requires => Package['php-pear'],
+}
