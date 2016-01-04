@@ -5,7 +5,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  config.vm.box = "puppetlabs/centos-6.5-64-puppet"
+  config.vm.box = "http://185.9.174.106/cmicognizant/micabkp/puppetlabs/centos5.6"
 
   # This shell provisioner installs librarian-puppet and runs it to install
   # puppet modules. After that it just runs puppet
